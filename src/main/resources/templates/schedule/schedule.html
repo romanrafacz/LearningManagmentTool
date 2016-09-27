@@ -1,0 +1,43 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		<h1>Schedule</h1>
+		<div>
+		<h4>Categories</h4>
+		<a class="btn btn-primary" th:href="@{'/schedule/{category}'(category=${platform})}" th:text="${platform}">Platform</a>
+		<a class="btn btn-primary" th:href="@{'/schedule/{category}'(category=${middleware})}" th:text="${middleware}">Middleware</a>
+		<a class="btn btn-primary" th:href="@{'/schedule/{category}'(category=${ibm_security})}" th:text="${ibm_security}">IBM Security</a>
+		<a class="btn btn-primary" th:href="@{'/schedule/{category}'(category=${storage})}" th:text="${storage}">Storage</a>
+		<a class="btn btn-primary" th:href="@{'/schedule/{category}'(category=${vsphere})}" th:text="${vsphere}">vSphere</a>
+		<a class="btn btn-primary" th:href="@{'/schedule/{category}'(category=${powersystems})}" th:text="${powersystems}">PowerSystems</a>
+		</div>
+		<table class="table table-striped" id="order_list">
+			<thead>
+			<tr>
+				<th>StartDate</th>
+				<th>EndDate</th>
+				<th>Course</th>
+				<th>Title</th>
+				<th>City</th>
+				<th>Category</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr data-th-each="course: ${schedule}">
+				<td  data-th-text="${course.startDate}"></td>
+				<td  data-th-text="${course.endDate}"></td>
+				<td><a th:href="@{'/course/{courseCode}'(courseCode=${course.course.courseCode})}"  data-th-text="${course.title}"></a></td>
+				<td  data-th-text="${course.course.courseCode}"></td>
+				<td  data-th-text="${course.location.city}"></td>
+				<td data-th-text="${course.category}"></td>
+				<td>
+					<a th:href="@{'/enroll/{id}'(id=${course.scheduleId})}" class="btn btn-primary"
+					 th:attr="name=${course.scheduleId}">Enroll
+					</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+</html>

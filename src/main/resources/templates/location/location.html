@@ -1,0 +1,43 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		<h1>Location</h1>
+
+		<table class="table table-striped" id="order_list">
+			<thead>
+			<tr>
+				<th>Location</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Zip</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr data-th-each="location: ${locations}">
+				<td><a th:href="@{'/location/{id}'(id=${location.locationCode})}"  data-th-text="${location.location}"></a></td>
+				<td  data-th-text="${location.city}"></td>
+				<td  data-th-text="${location.state}"></td>
+				<td  data-th-text="${location.zipcode}"></td>
+				<td>
+					<a th:href="@{'/order/{id}/edit'(id=${location.locationCode})}" class="edit" th:attr="name=${location.locationCode}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-edit" />
+						</span>
+					</a>
+				
+				</td>
+				<td>
+					<a th:href="@{'/order/{id}/delete'(id=${location.locationCode})}" class="delete" th:attr="name=${location.locationCode}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-trash" />
+						</span>
+					</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+</html>

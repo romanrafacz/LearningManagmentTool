@@ -1,0 +1,40 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		<h1>Course</h1>
+<table class="table table-striped" id="order_list">
+			<thead>
+			<tr>
+				<th></th>
+				<th>Course</th>
+				<th>Vendor</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr data-th-each="course: ${courses}">
+				<td><a th:href="@{'/course/{courseCode}'(courseCode=${course.courseCode})}">View Details</a></td>
+				<td data-th-text="${course.courseCode}"></td>
+				<td  data-th-text="${course.vendor}"></td>
+				<td>
+					<a th:href="@{'/order/{id}/edit'(id=${course.courseCode})}" class="edit" th:attr="name=${course.courseCode}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-edit" />
+						</span>
+					</a>
+				
+				</td>
+				<td>
+					<a th:href="@{'/order/{id}/delete'(id=${course.courseCode})}" class="delete" th:attr="name=${course.courseCode}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-trash" />
+						</span>
+					</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	
+
+</html>

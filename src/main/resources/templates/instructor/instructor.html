@@ -1,0 +1,15 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		<h1>Instructor</h1>
+		<div data-th-each="instructor: ${instructors}">
+				
+				<div class="col-md-8">
+				<p th:text="${plump.instructorFirstName}"></p>
+				</div>
+		</div>
+		
+		
+	
+	</div>
+
+</html>
