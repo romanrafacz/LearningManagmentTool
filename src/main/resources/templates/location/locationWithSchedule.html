@@ -1,0 +1,13 @@
+<html layout:decorator="home">
+	<div layout:fragment="content" class="col-md-8">
+		<div>
+		<h1 data-th-text="${locaiton.location}"></h1>
+		</div>
+		<p  th:utext="${location.street}"></p>
+ 		<p  th:utext="${location.city}"></p>
+		<p  th:utext="${location.state}"></p>
+ 		<p  th:utext="${location.zipcode}"></p>
+
+	</div>
+
+</html>

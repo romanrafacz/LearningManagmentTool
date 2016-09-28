@@ -15,7 +15,7 @@
 			</thead>
 			<tbody>
 			<tr data-th-each="location: ${locations}">
-				<td><a th:href="@{'/location/{id}'(id=${location.locationCode})}"  data-th-text="${location.location}"></a></td>
+				<td><a th:href="@{'/location/{locationCode}'(locationCode=${location.locationCode})}"  data-th-text="${location.location}"></a></td>
 				<td  data-th-text="${location.city}"></td>
 				<td  data-th-text="${location.state}"></td>
 				<td  data-th-text="${location.zipcode}"></td>

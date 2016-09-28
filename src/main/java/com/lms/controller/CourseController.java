@@ -22,15 +22,13 @@ public class CourseController {
 	@RequestMapping("/course")
 	public String showAllCourses(Model model){
 		model.addAttribute("courses", courseRepository.findAll());
-		return "course/course";
+		return "course/allCourses";
 	}
 	
 	@RequestMapping("/course/{courseCode}")
-	public String showCoure(Model model, @PathVariable String courseCode){
+	public String showIndividualCoure(Model model, @PathVariable String courseCode){
 		model.addAttribute("course", courseRepository.findOne(courseCode));
-		
-		
-		return "course/search_by_course";
+		return "course/individualCourse";
 	}
 
 }

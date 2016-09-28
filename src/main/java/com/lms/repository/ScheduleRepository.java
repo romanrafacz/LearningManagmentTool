@@ -18,5 +18,11 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
 	
 	@Query("SELECT s FROM Schedule s WHERE s.course = (:courseCode)")
 	ArrayList<Schedule> searchScheduleByCourseCode(@Param("courseCode") String courseCode);
+	
+	@Query("SELECT s FROM Schedule s WHERE s.scheduleCode = (:scheduleCode)" )
+	Schedule searchScheduleByScheduleCode(@Param("scheduleCode") String scheduleCode);
+	
+	@Query("SELECT s FROM Schedule s WHERE s.location = (:locationCode)")
+	ArrayList<Schedule> searchScheduleByLocationCode(@Param("locationCode") String locationCode);
 
 }

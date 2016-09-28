@@ -1,0 +1,55 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		<h1>Enrollment Page</h1>
+		<div>
+		<p th:text="${schedule.scheduleId}"> </p>
+		<p th:text="${schedule.scheduleCode}"> </p>
+		<p th:text="${schedule.course.courseCode}"> </p>
+		<p th:text="${schedule.title}"> </p>
+		<p th:text="${schedule.startDate}"> </p>
+		<p th:text="${schedule.endDate}"> </p>
+		<p th:text="${schedule.location.location}"> </p>
+		<p th:text="${schedule.location.city}"> </p>
+		<p th:text="${schedule.location.state}"> </p>
+		<p th:text="${schedule.instructor.instructorFirstName}"> </p>
+		</div>
+		
+		<div>
+		<form method="post" name="enrollment" id="enrollment" th:action="@{'/enroll/add'}" role="form">
+		
+				<input type="text" id="scheduleId" th:value="${schedule.scheduleCode}" name="scheduleId"></input>
+				
+				<div>
+				<label>First Name</label>
+				</div>
+				<div>
+				<input type="text"  th:value="${enrollment.firstName}" name="firstName"/>
+				<p th:if="${#fields.hasErrors('enrollment.firstName')}" th:errors="*{enrollment.firstName}">First Name Error</p>
+				</div>
+				
+				<div>
+				<label>Last Name</label>
+				</div>
+				<div>
+				<input type="text"  th:value="${enrollment.lastName}" name="lastName"/>
+				<p th:if="${#fields.hasErrors('enrollment.lastName')}" th:errors="*{enrollment.lastName}">Last Name Error</p>
+				</div>
+				
+				<div>
+				<label>Name</label>
+				</div>
+				<div>
+				<input type="text"  th:value="${enrollment.email}" name="email"/>
+				<p th:if="${#fields.hasErrors('enrollment.email')}" th:errors="*{enrollment.email}">Email Error</p>
+				</div>
+				
+				<td><button type="submit" value="Add" class="btn btn-primary">Enroll</button></td>
+				
+		</form>
+		
+		</div>
+				
+	</div>
+	
+
+</html>
