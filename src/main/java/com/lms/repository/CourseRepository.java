@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lms.domain.Course;
 
-
+@Repository
 public interface CourseRepository extends JpaRepository<Course, String> {
 	
 //	@Query("SELECT course_code from course WHERE course_code = (:courseCode)")

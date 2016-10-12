@@ -28,6 +28,7 @@ public class CourseController {
 	@RequestMapping("/course/{courseCode}")
 	public String showIndividualCoure(Model model, @PathVariable String courseCode){
 		model.addAttribute("course", courseRepository.findOne(courseCode));
+		//model.addAttribute("schedule", scheduleRepository.searchScheduleByCourseCode(courseCode));
 		return "course/individualCourse";
 	}
 

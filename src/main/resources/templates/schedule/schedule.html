@@ -29,6 +29,7 @@
 				<td  data-th-text="${course.course.courseCode}"></td>
 				<td  data-th-text="${course.location.city}"></td>
 				<td data-th-text="${course.category}"></td>
+				<td data-th-text="${course.location.locationCode}"></td>
 				<td>
 					<a th:href="@{'/enroll/{scheduleCode}'(scheduleCode=${course.scheduleCode})}" class="btn btn-primary"
 					 th:attr="name=${course.scheduleCode}">Enroll

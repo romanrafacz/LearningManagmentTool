@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @SpringBootApplication
-@EnableTransactionManagement
 public class JackApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {

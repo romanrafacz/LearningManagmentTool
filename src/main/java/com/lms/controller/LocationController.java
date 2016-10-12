@@ -24,8 +24,12 @@ public class LocationController {
 	
 	@RequestMapping("/location/{locationCode}")
 	public String showCoure(Model model, @PathVariable String locationCode){
+		
+		//just a test variable
+		String loco = locationCode;
 		model.addAttribute("loco", locationCode);
 		//model.addAttribute("schedule", scheduleRepository.searchScheduleByLocationCode(locationCode));
+		model.addAttribute("schedule", scheduleRepository.findAll());
 		model.addAttribute("location", locationRepository.findOne(locationCode));
 		return "location/locationWithSchedule";
 	}
