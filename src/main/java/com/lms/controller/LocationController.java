@@ -29,7 +29,7 @@ public class LocationController {
 		String loco = locationCode;
 		model.addAttribute("loco", locationCode);
 		//model.addAttribute("schedule", scheduleRepository.searchScheduleByLocationCode(locationCode));
-		model.addAttribute("schedule", scheduleRepository.findAll());
+		//model.addAttribute("schedule", scheduleRepository.findAll());
 		model.addAttribute("location", locationRepository.findOne(locationCode));
 		return "location/locationWithSchedule";
 	}
